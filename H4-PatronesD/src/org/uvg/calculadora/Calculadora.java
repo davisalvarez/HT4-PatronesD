@@ -11,19 +11,30 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 
-import org.uvg.stack.Stack;
-import org.uvg.stack.StackArrayList;
+//import org.uvg.stack.Stack;
+//import org.uvg.stack.StackArrayList;
 
 public class Calculadora {
 	
 	private ArrayList<String[]> expresiones;
-	private Stack<String> stackOperandos;
+	//private Stack<String> stackOperandos;
 	
+	//Patron de Diseño Singleton
+	private static Calculadora instancia;
+	public static Calculadora getInstancia(){
+		if(instancia==null)
+			instancia= new Calculadora();
+		return instancia;
+	}
+	
+	private Calculadora(){
+	}
+	/*
 	public Calculadora(){
 		expresiones = new ArrayList<String[]>();
 		stackOperandos = new StackArrayList<String>();
 	}
-	
+	*/
 	public void lectorArchivo(){
 		File datos;
 		FileReader datosLeidos=null;
